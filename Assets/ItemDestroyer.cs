@@ -4,32 +4,22 @@ using UnityEngine;
 
 public class ItemDestroyer : MonoBehaviour
 {
+    GameObject mainCamera;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log(other.name);
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    //通過したオブジェクトを破棄
-    //    Destroy(other.gameObject);
-    //}
-
-    private void OnBecameInvisible()
-    {
-        //Debug.Log(this.gameObject.name);
-        Destroy(this.gameObject);
+        if (this.transform.position.z < mainCamera.transform.position.z)
+        {
+            //通過したオブジェクトを破棄
+            Destroy(this.gameObject);
+        }
     }
 }

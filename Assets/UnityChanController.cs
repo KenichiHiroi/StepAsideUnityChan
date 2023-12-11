@@ -112,15 +112,6 @@ public class UnityChanController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("onTriggerEnter");
-        //チェックポイントに到達した場合
-        if(other.gameObject.tag == "CheckPointTag")
-        {
-            //Debug.Log("チェックポイント通貨");
-            int checkPointPositionZ = (int)other.gameObject.transform.position.z;
-            itemgenerator.GenerateItem(checkPointPositionZ);
-        }
-
         //障害物に衝突した場合
         if(other.gameObject.tag == "CarTag" || other.gameObject.tag == "TrafficConeTag")
         {
